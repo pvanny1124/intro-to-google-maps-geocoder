@@ -36,13 +36,17 @@
         locationForm.addEventListener("submit", geocode);
 
         function geocode(e){
-            //Stop form from submitting elsewhere
+            //Stop form from submitting elsewhere so we can capture data manually
             e.preventDefault();
+            
+            //Get location value from input
             var location = document.getElementById("location-input").value;
+            
+            //Make request
             axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
                 params: {
                     address: location,
-                    key: "AIzaSyCJo_3FXPgEV_Z_PEJvPXDZfU-GKz-GzaA"
+                    key: "ENTER API KEY HERE"
                 }
             })
             
@@ -76,7 +80,6 @@
                          <li class="list-group-item"><strong>Latitude: </strong>${lat}</li>
                          <li class="list-group-item"><strong>Longitude: </strong>${lng}</li>
                     </ul>
-
                 `;
 
                 addressComponentsOutput += "</ul>";
